@@ -8,8 +8,8 @@ import typescript from "rollup-plugin-typescript";
 export default {
     input: "src/index.tsx",
     output: {
-        file: "build/bundle.js",
-        format: "iife",
+        file: "dist/index.js",
+        format: "cjs",
         sourcemap: true,
     },
     plugins: [
