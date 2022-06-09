@@ -7,7 +7,9 @@
     "start": "rollup -c rollup.config.js -w"
   },
   "files": [
-    "dist"
+    "index.txs",
+    "dist/index.js",
+    "dist/index.js.map"
   ],
   "author": "jamila_sh",
   "repository": {
