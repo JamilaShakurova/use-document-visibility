@@ -1,17 +1,27 @@
 {
-  "name": "hook-use-document-visibility",
-  "version": "0.1.0",
+  "name": "@jamila_sh/hook-use-document-visibility",
+  "version": "0.1.1",
   "description": "",
   "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
-  "files": [
-      "dist"
-    ],
   "scripts": {
     "start": "rollup -c rollup.config.js -w"
   },
+    "files": [
+        "dist/"
+  ],
   "author": "jamila_sh",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JamilaShakurova/use-document-visibility.git"
+  },
+  "homepage": "https://github.com/JamilaShakurova/use-document-visibility",
+  "keywords": [
+        "react",
+        "hook",
+        "document",
+        "visibility"
+    ],
+    "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.18.2",
     "@babel/preset-env": "^7.18.2",
