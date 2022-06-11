@@ -9,9 +9,10 @@ export default {
     input: "src/index.tsx",
     output: {
         file: "dist/index.js",
-        format: "amd",
+        format: "cjs",
         sourcemap: true,
     },
+    external: ["react"],
     plugins: [
         nodeResolve({
             extensions: [".ts", ".tsx"]
