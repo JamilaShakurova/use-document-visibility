@@ -9,7 +9,7 @@ and how many times the page has been visited by the user
 
 ```jxs
 import React from 'react'
-import { useDocumentVisibility } from '@jamila_sh/hook-use-document-visibility'
+import useDocumentVisibility from 'hook-use-document-visibility'
 
 const LeaveTabCounter = () => {
   const { count, visible, onVisibilityChange } = useDocumentVisibility();
