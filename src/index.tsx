@@ -2,14 +2,15 @@ import React, {useEffect, useState} from 'react';
 
 type TCallBack = (isVisible: boolean) => void;
 type TBoundedCallBack = () => void;
+const callbacks: TBoundedCallBack[] = [];
 
 const useDocumentVisibility = () => {
     const [visible, setVisible] = useState<boolean>(true);
     const [count, setCount] = useState<number>(0);
-    const callbacks: TBoundedCallBack[] = [];
+
 
     const onVisibilityChange = (cb: TCallBack) => {
-        callbacks.push(cb.bind(null, visible));
+        callbacks.push(cb as () => void);
     }
 
     const handleVisibilityChange = () => {
@@ -21,7 +22,7 @@ const useDocumentVisibility = () => {
         }
 
         for (const cb of callbacks) {
-            cb();
+            cb.bind(null, visible);
         }
     }
 
