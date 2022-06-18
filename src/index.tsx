@@ -1,28 +1,27 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
 
 type TCallBack = (isVisible: boolean) => void;
-const callbacks: TCallBack[] = [];
 
 const useDocumentVisibility = () => {
     const [visible, setVisible] = useState<boolean>(true);
     const [count, setCount] = useState<number>(0);
+    const callbacks: React.MutableRefObject<TCallBack[]> = useRef([]);
 
 
-    const onVisibilityChange = (cb: TCallBack) => {
-        callbacks.push(cb);
-    }
+    const onVisibilityChange = useCallback((cb: TCallBack) => {
+        callbacks.current.push(cb);
+    }, []);
 
     const handleVisibilityChange = () => {
         if (!document.hidden) {
+            console.log('setVisible(true)');
             setVisible(true)
             setCount(preCount => preCount + 1)
         } else {
+            console.log('setVisible(false)');
             setVisible(false)
         }
-
-        for (const cb of callbacks) {
-            cb(visible);
-        }
+        callbacks.current.forEach((callback) => callback(!document.hidden))
     }
 
     useEffect(() => {
@@ -40,4 +39,4 @@ const useDocumentVisibility = () => {
 }
 
 
-module.exports = useDocumentVisibility;
+export default useDocumentVisibility;
